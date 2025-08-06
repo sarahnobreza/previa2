@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Stories Privado</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      /* background-color: black;  -- removido */
+    }
+
+    .bg {
+      background-image: url('https://s3.meucanalvip.org/previassarah/safadinha2.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: none;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;                    /* ajustado para 0 */
+      transition: filter 1s ease;
+    }
+
+    .bg.blur {
+      filter: blur(10px);
+    }
+
+    .texto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      text-shadow: 1px 1px 4px #000;
+      opacity: 0;
+      transition: opacity 1s ease;
+      z-index: 1;                    /* texto acima da imagem */
+    }
+
+    .texto.visivel {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg" id="fundo"></div>
+
+  <div class="texto" id="mensagem">
+    Stories privado da Sarah acabou...
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById('fundo').classList.add('blur');
+      document.getElementById('mensagem').classList.add('visivel');
+    }, 4000); // após 4 segundos
+  </script>
+
+</body>
+</html>
